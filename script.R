@@ -1,3 +1,5 @@
+#!/usr/bin/env Rscript
+
 library(tidyverse)
 library(cowplot)
 library(svglite)
@@ -19,4 +21,4 @@ svglite()
 plot_grid(p1, p2, ncol = 1)
 dev.off()
 
-write_csv(summed, "stats.csv")
+write_csv(df %>% select(timestamp, date, unbottled, bottled, total), "stats.csv")
